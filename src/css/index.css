@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: radial-gradient(circle, #161616, #121212, #0d0d0d, #070707, #000000);
+
+  overflow: hidden;
+}
+
+body::after{
+  content: '';
+  position: absolute;
+  background: url("https://www.chrometattooparis.com/assets/images/misc/trame.png");
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  -webkit-animation: tv-scroll 0.5s steps(5) infinite;
+  animation: tv-scroll 0.5s steps(5) infinite;
+  z-index: 9999;
+}
+
+@keyframes tv-scroll {
+  0%{
+    background-position: 0px 10px;
+    opacity: 0.6;
+  } 100% {
+    background-position: 0 0px;
+    opacity: 1;
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* p {
+  position: relative;
+  color: white;
+} */
+
+.mmtest{
+  width: 100vw;
+  height: 100vh;
+  background-color: red;
+}
+
+.paysage {
+  color: white;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-image: radial-gradient(circle, #161616, #121212, #0d0d0d, #070707, #000000);
+  text-transform: uppercase;
+}

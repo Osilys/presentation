@@ -1,13 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import './css/index.css';
+import Toucan from './Toucan';
+// import Main from './main';
+// import Header from './header';
+import Footer from './footer';
 import reportWebVitals from './reportWebVitals';
+// import { color } from 'three/webgpu';
+import Rotation from './rota.js'; // Import the custom hook
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <Header /> */}
+    <Rotation/>
+    <Toucan />
+    <Footer />
   </React.StrictMode>
 );
 

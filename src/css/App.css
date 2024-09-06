@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
+
+body {
+  background-color: black;
+}
+
+.mainDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+.Tdiv {
+  position: fixed;
+}
+
+.tv {
+  position: fixed;
+}
+
+.titre {
+  color: white;
+  position: absolute;
+  text-transform: uppercase;
+  font-size: 100px;
+  letter-spacing: 15px
+}
+
+.background-text {
+  display: none;
+  position: absolute;
+  top: 40vh;
+  padding-left: 190vw;
+  font-size: 20vh;
+  font-family: "Orbitron";
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #00000080;
+  -webkit-animation: stream-title 10s infinite linear;
+  animation: stream-title 10s infinite linear;
+  z-index: -1;
+}
+
+.background-text-delay {
+  -webkit-animation-delay: 5s;
+  animation-delay: 5s;
+}
+
+
+@keyframes stream-title {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .background-text {
+      padding-left: 380vw;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .background-text {
+      padding-left: 450vw;
+  }
+}
+
+main .welcome {
+  display: grid;
+  grid-auto-flow: column;
+  margin-top: 50vh;
+}
+
+.btn--big {
+  padding: 10px 20px;
+  background: #f6edd7;
+  -webkit-box-shadow: 0 0 10px rgba(246, 237, 215, 0.6);
+  box-shadow: 0 0 10px rgba(246, 237, 215, 0.6);
+  text-transform: uppercase;
+  font-family: "Orbitron";
+  font-size: 14px;
+  font-size: 14rem;
+  color: #0d0d0d;
+  text-decoration: none; 
+  font-size: 1vw;
+  transition: 0.5s;
+}
+
+.btn--big:hover {
+  background: #f18f0f;
+  -webkit-box-shadow: 0 0 10px rgba(247, 158, 24, 0.6);
+  box-shadow: 0 0 10px rgba(247, 158, 24, 0.6);
+}
+
+main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+
+}
+
+.left, .right {
+  text-align: center;
+}
+
+.center {
+  width: 40vw;
+}
+
+@media screen and (min-width: 320px) {
+  .btn--big {
+      font-size: calc(9px + 11*((100vw - 320px) / 1080));
+  }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 320px) {
+  main .welcome .btn {
+      font-size: calc(16px + 4*((100vw - 320px) / 1080));
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  main .welcome {
+      grid-auto-flow: row;
+      grid-template-rows: 50px auto;
+      margin-top: 70vh;
+  }
+
+  .center{
+    display: none;
+  }
+}
