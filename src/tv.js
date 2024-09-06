@@ -4,9 +4,10 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import TV from './model/TV.glb';
 import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
+import Footer from './footer';
 
 const hdri = new URL("./model/environment.hdr", import.meta.url);
-const videoSrc = new URL("https://www.groupe-vip360.com/extranet/clients/4235/20210525225035/bo-video/1_fr.mp4", import.meta.url);
+const videoSrc = new URL("./model/video.mp4", import.meta.url);
 
 function TELE() {
   const mountRef = useRef(null);
