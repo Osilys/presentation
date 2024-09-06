@@ -149,7 +149,7 @@ function AppRouter() {
     <Router>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/menu" element={<TV />} />
+        <Route path="/presentation" element={<TV />} />
       </Routes>
     </Router>
   );
