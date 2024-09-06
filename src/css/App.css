@@ -80,6 +80,7 @@ main .welcome {
 
 .btn--big {
   padding: 10px 20px;
+  border: 0;
   background: #f6edd7;
   -webkit-box-shadow: 0 0 10px rgba(246, 237, 215, 0.6);
   box-shadow: 0 0 10px rgba(246, 237, 215, 0.6);
