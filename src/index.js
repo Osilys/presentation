@@ -18,6 +18,7 @@ root.render(
     <Rotation/>
     <Toucan />
     <Footer />
+    <canvas id="birthday"></canvas>
   </React.StrictMode>
 );
 

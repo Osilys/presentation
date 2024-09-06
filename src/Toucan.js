@@ -4,7 +4,6 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import toucanModel from './model/toucan.glb';
 import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
-import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react-router-dom';
 import TV from './tv.js'
 
 const hdri = new URL("./model/environment.hdr", import.meta.url);
@@ -13,7 +12,6 @@ function App() {
   const mountRef = useRef(null);
   const modelRef = useRef(null);  // Reference to the model
   const targetRotation = useRef({ x: 0, y: 0 }); // Target rotation for easing
-  const navigate = useNavigate(); // Hook for navigation
 
   useEffect(() => {
     // Three.js scene setup
@@ -97,6 +95,41 @@ function App() {
       }
     };
 
+
+    let lastScrollY = 0;
+    let ticking = false;
+  
+    const handleScroll = () => {
+      // L'utilisateur fait défiler vers le bas ou vers le haut
+      const scrollY = window.scrollY;
+  
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentViewportHeight = window.innerHeight;
+  
+          // Calculer si l'on défile vers le haut ou le bas
+          if (scrollY > lastScrollY) {
+            // Défilement vers le bas - aller à la prochaine section
+            window.scrollTo({
+              top: Math.ceil(scrollY / currentViewportHeight) * currentViewportHeight,
+              behavior: 'smooth'
+            });
+          } else {
+            // Défilement vers le haut - revenir à la section précédente
+            window.scrollTo({
+              top: Math.floor(scrollY / currentViewportHeight) * currentViewportHeight,
+              behavior: 'smooth'
+            });
+          }
+  
+          lastScrollY = scrollY;
+          ticking = false;
+        });
+  
+        ticking = true;
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('touchmove', handleTouchMove);
 
@@ -114,6 +147,7 @@ function App() {
     animate();
 
     return () => {
+      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('touchmove', handleTouchMove);
@@ -123,12 +157,20 @@ function App() {
       renderer.dispose();
     };
   }, []);
-
+  
   const handleClick = () => {
-    navigate('/menu'); // Navigate to the TV page when "Bouton 2" is clicked
-  };
+    const currentScrollY = window.scrollY;
+    const viewportHeight = window.innerHeight;
+
+    // Faire défiler de 100vh vers le bas
+    window.scrollTo({
+      top: currentScrollY + viewportHeight,
+      behavior: 'smooth', // Pour un défilement fluide
+    });
+  }
 
   return (
+    <>
     <div className='mainDiv'>
       <div className='Tdiv' ref={mountRef} />
       <div className='background-text' style={{display: "inline-block"}}>Votez osilys</div>
@@ -141,18 +183,9 @@ function App() {
         </div>
       </main>
     </div>
+    <TV />
+    </>
   );
 }
 
-function AppRouter() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/presentation" element={<App />} />
-        <Route path="/menu" element={<TV />} />
-      </Routes>
-    </Router>
-  );
-}
-
-export default AppRouter;
+export default App;

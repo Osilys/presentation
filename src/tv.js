@@ -154,6 +154,11 @@ function TELE() {
   return (
     <div className='Tdiv'>
       <div className='tv' ref={mountRef} />
+      <div className='gallery__container'>
+
+      </div>
+      <div className='background-text' style={{display: "inline-block"}}>Votez osilys</div>
+      <div className='background-text background-text-delay' style={{display: "inline-block"}}>Votez osilys</div>
     </div>
   );
 }

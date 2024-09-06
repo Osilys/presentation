@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: radial-gradient(circle, #161616, #121212, #0d0d0d, #070707, #000000);
 
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body::after{
@@ -22,6 +22,8 @@ body::after{
   -webkit-animation: tv-scroll 0.5s steps(5) infinite;
   animation: tv-scroll 0.5s steps(5) infinite;
   z-index: 9999;
+  
+  height: 200vh;
 }
 
 @keyframes tv-scroll {
@@ -35,7 +37,8 @@ body::after{
 }
 
 #root{
-  overflow: hidden;
+  overflow-x: hidden;
+  height: 200vh;
 }
 
 code {
@@ -66,3 +69,4 @@ code {
   background-image: radial-gradient(circle, #161616, #121212, #0d0d0d, #070707, #000000);
   text-transform: uppercase;
 }
+
