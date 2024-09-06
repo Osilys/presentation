@@ -125,7 +125,7 @@ function App() {
   }, []);
 
   const handleClick = () => {
-    navigate('/tv'); // Navigate to the TV page when "Bouton 2" is clicked
+    navigate('/menu'); // Navigate to the TV page when "Bouton 2" is clicked
   };
 
   return (
